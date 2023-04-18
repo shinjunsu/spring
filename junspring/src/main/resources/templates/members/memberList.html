@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Member List</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .delete {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .delete:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+<h1>회원 목록</h1>
+<table>
+  <thead>
+  <tr>
+    <th>#</th>
+    <th>이름</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="member : ${members}">
+    <td th:text="${member.id}"></td>
+    <td th:text="${member.name}"></td>
+    <td>
+      <form th:action="@{/members/__${member.id}__}" method="post">
+        <button type="submit" class="delete">삭제</button>
+      </form>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<button onclick="history.back()">이전 페이지</button>
+</body>
+</html>

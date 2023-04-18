@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      label {
+        font-size: 20px;
+        color: #555;
+        margin-right: 10px;
+      }
+
+      input[type=text] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+    </style>
+</head>
+<body>
+  <div>
+    <form action="/members/new" method="post">
+      <div>
+        <label for="name">이름
+        <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+        </label>
+      </div>
+      <button type="submit">등록</button>
+    </form>
+  </div>
+</body>
+</html>
